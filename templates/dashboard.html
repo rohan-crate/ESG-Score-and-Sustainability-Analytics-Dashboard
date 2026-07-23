@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>ESG Analytics Dashboard</h2>
+
+    <ul>
+
+        <li><a href="/">Home</a></li>
+
+        <li><a href="/dashboard">Dashboard</a></li>
+
+        <li><a href="/predict">Prediction</a></li>
+
+        <li><a href="/about">About</a></li>
+
+    </ul>
+
+</nav>
+
+<div class="container">
+
+    <h1>Analytics Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>{{ total }}</h2>
+            <p>Total Companies</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ avg }}</h2>
+            <p>Average ESG</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ highest }}</h2>
+            <p>Highest ESG</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ lowest }}</h2>
+            <p>Lowest ESG</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h2>ESG Score Distribution</h2>
+
+    <img src="{{ url_for('static', filename='esg_distribution.png') }}">
+
+    <hr>
+
+    <h2>Average ESG Score by Industry</h2>
+
+    <img src="{{ url_for('static', filename='industry_chart.png') }}">
+
+    <hr>
+
+    <h2>Average ESG Score by Region</h2>
+
+    <img src="{{ url_for('static', filename='region_chart.png') }}">
+
+    <hr>
+
+    <h2>Top 10 Companies by ESG Score</h2>
+
+    <img src="{{ url_for('static', filename='top10_chart.png') }}">
+
+</div>
+
+</body>
+
+</html>

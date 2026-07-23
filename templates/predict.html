@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>ESG Analytics Dashboard</h2>
+
+    <ul>
+
+        <li><a href="/">Home</a></li>
+
+        <li><a href="/dashboard">Dashboard</a></li>
+
+        <li><a href="/predict">Prediction</a></li>
+
+        <li><a href="/about">About</a></li>
+
+    </ul>
+
+</nav>
+
+<div class="container">
+
+    <h1>Predict ESG Score</h1>
+
+    <form action="/result" method="POST">
+
+        <input
+            type="number"
+            step="any"
+            name="environment"
+            placeholder="Environmental Score"
+            required>
+
+        <br><br>
+
+        <input
+            type="number"
+            step="any"
+            name="social"
+            placeholder="Social Score"
+            required>
+
+        <br><br>
+
+        <input
+            type="number"
+            step="any"
+            name="governance"
+            placeholder="Governance Score"
+            required>
+
+        <br><br>
+
+        <button type="submit">Predict</button>
+
+        <button type="reset">Reset</button>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="result-card">
+
+        <h2>Prediction Summary</h2>
+
+        <p><strong>Environmental Score:</strong> {{ environment }}</p>
+
+        <p><strong>Social Score:</strong> {{ social }}</p>
+
+        <p><strong>Governance Score:</strong> {{ governance }}</p>
+
+        <hr>
+
+        <h3>Predicted ESG Score</h3>
+
+        <h1 style="color:green;">{{ prediction }}</h1>
+
+        <h3>{{ rating }}</h3>
+
+        <p>{{ message }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>
